@@ -5,7 +5,11 @@ const server = express()
 
 server.use(express.json())
 
+const authRouter = require('./auth/auth-router.js')
+const userRouter = require('./users/users-router.js')
 
+server.use('/auth', authRouter)
+server.use('/users', userRouter)
 
 server.get('/', (req, res, next) => {
     res.json({

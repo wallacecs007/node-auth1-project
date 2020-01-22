@@ -12,7 +12,7 @@ function restricted() {
 
     return async(req, res, next) => {
         try {
-            const { username, password } = req.headers
+            const { username, password } = req.body
 
             if(!username || !password ) {
                 return res.status(401).json(authError)
